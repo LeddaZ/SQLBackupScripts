@@ -29,7 +29,7 @@ extractDir=D:\Backup\Extracted
 
 - Lo script per il backup completo lo comprime in formato zip dopo la creazione, utilizzando 7zip (nella cartella `7z`); una volta terminata la compressione elimina il file non compresso. Vengono mantenuti due backup, alla creazione del terzo viene prima eliminato il più vecchio.
 - I backup differenziali vengono salvati in una cartella nominata con il timestamp dell’ultimo backup completo, da utilizzare come base per il ripristino. Alla creazione di un nuovo backup completo la cartella in questione viene eliminata, e ne viene creata una con il nuovo timestamp per i successivi backup differenziali.
-- Vengono mantenuti fino a 100 backup dei log (circa un giorno di backup se viene fatto ogni 15 minuti).
+- Vengono mantenuti fino a 100 backup dei log (circa un giorno di backup se viene fatto ogni 15 minuti). Ad ogni backup il file di log viene ripulito.
 - Lo script per estrarre i backup crea una lista di tutti i file `.zip` in `fullBackupDir`, `diffBackupDir` e `logBackupDir`, quindi li estrae in `extractDir`.
 
 ## Schedule

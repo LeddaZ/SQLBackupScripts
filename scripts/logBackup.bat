@@ -27,6 +27,7 @@ IF %count%==100 goto :del
 
 :breakLoop
 sqlcmd -E -S %serverName% -Q "BACKUP LOG %dbName% TO DISK = '%filename%' WITH FORMAT, MEDIANAME='Backups'" >> %scriptLogs%\trnLog.txt
+sqlcmd -E -S %serverName% -Q "DBCC SHRINKFILE (%dbName%_log, 1)" >> %scriptLogs%\trnLog.txt
 
 echo Compressing backup... >> %scriptLogs%\trnLog.txt
 ..\7z\7za.exe a -tzip %filename%.zip %filename% >> %scriptLogs%\trnLog.txt

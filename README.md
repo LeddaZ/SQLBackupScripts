@@ -29,7 +29,7 @@ extractDir=D:\Backup\Extracted
 
 - The full backup script compresses it into zip format after creation, using 7zip (in the `7z` folder); once compression is complete it deletes the uncompressed file. Two backups are kept, when the third is created the oldest is deleted first.
 - Differential backups are saved in a folder named with the timestamp of the last full backup, to be used as a base for restore. When a new full backup is created the folder in question is deleted, and a new one is created with the new timestamp for subsequent differential backups.
-- Up to 100 log backups are kept (about a day of backups if done every 15 minutes).
+- Up to 100 log backups are kept (about a day of backups if done every 15 minutes). The log file is shrunk after every backup.
 - The backup extraction script creates a list of all `.zip` files in `fullBackupDir`, `diffBackupDir`, `logBackupDir`, then it extracts them in `extractDir`.
 
 ## Schedules
