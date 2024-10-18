@@ -1,0 +1,6 @@
+dbName=asdf
+serverName=DESKTOP-4NU75CF
+fullBackupDir=D:\Backup\Backups\Full
+diffBackupDir=D:\Backup\Backups\Diff
+logBackupDir=D:\Backup\Backups\Logs
+scriptLogs=D:\Backup\Logs
