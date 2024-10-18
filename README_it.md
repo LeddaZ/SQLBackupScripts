@@ -9,6 +9,7 @@
 - `dbName` – Nome del database
 - `fullBackupDir`, `diffBackupDir`, `logBackupDir` – Percorso per (rispettivamente) backup completi, backup differenziali, backup dei log
 - `scriptLogs` – Percorso per i log generati dagli script
+- `extractDir` - Percorso in cui verranno estratti i backup quando si esegue l'apposito script
 
 Non è necessario che le cartelle esistano già, in caso contrario gli script le creeranno automaticamente; **i percorsi non possono contenere spazi**.
 
@@ -21,6 +22,7 @@ fullBackupDir=D:\Backup\Backups\Full
 diffBackupDir=D:\Backup\Backups\Diff
 logBackupDir=D:\Backup\Backups\Logs
 scriptLogs=D:\Backup\Logs
+extractDir=D:\Backup\Extracted
 ```
 
 ## Script
@@ -28,6 +30,7 @@ scriptLogs=D:\Backup\Logs
 - Lo script per il backup completo lo comprime in formato zip dopo la creazione, utilizzando 7zip (nella cartella `7z`); una volta terminata la compressione elimina il file non compresso. Vengono mantenuti due backup, alla creazione del terzo viene prima eliminato il più vecchio.
 - I backup differenziali vengono salvati in una cartella nominata con il timestamp dell’ultimo backup completo, da utilizzare come base per il ripristino. Alla creazione di un nuovo backup completo la cartella in questione viene eliminata, e ne viene creata una con il nuovo timestamp per i successivi backup differenziali.
 - Vengono mantenuti fino a 100 backup dei log (circa un giorno di backup se viene fatto ogni 15 minuti).
+- Lo script per estrarre i backup crea una lista di tutti i file `.zip` in `fullBackupDir`, `diffBackupDir` e `logBackupDir`, quindi li estrae in `extractDir`.
 
 ## Schedule
 
