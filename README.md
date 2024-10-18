@@ -10,7 +10,7 @@
 - `fullBackupDir`, `diffBackupDir`, `logBackupDir` – Percorso per (rispettivamente) backup completi, backup differenziali, backup dei log
 - `scriptLogs` – Percorso per i log generati dagli script
 
-Non è necessario che le cartelle esistano già, in caso contrario gli script le creeranno automaticamente; i percorsi non possono contenere spazi.
+Non è necessario che le cartelle esistano già, in caso contrario gli script le creeranno automaticamente; **i percorsi non possono contenere spazi**.
 
 ### Esempio
 
