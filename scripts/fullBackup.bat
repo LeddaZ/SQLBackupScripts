@@ -1,4 +1,4 @@
-@ren Lettura file di configurazione
+@ren Read config file
 for /f "tokens=1,2 delims==" %%a in (..\config.txt) do (
     if %%a==dbName set dbName=%%b
     if %%a==serverName set serverName=%%b
@@ -7,7 +7,7 @@ for /f "tokens=1,2 delims==" %%a in (..\config.txt) do (
     if %%a==scriptLogs set scriptLogs=%%b
 )
 
-@ren Crea le cartelle necessarie se non esistono già
+@ren Create required folders if they don't exist
 md %fullBackupDir%
 md %diffBackupDir%
 md %scriptLogs%
@@ -33,9 +33,9 @@ sqlcmd -E -S %serverName% -Q "BACKUP DATABASE %dbName% TO DISK = '%filename%' WI
 md %diffBackupDir%\%datetime%
 echo %datetime% > %diffBackupDir%\latestfull.txt
 fsutil file seteof %diffBackupDir%\latestfull.txt 19
-echo Compressione del backup in corso... >> %scriptLogs%\fullLog.txt
+echo Compressing backup... >> %scriptLogs%\fullLog.txt
 ..\7z\7za.exe a -tzip %filename%.zip %filename% >> %scriptLogs%\fullLog.txt
-echo Compressione del backup completata. >> %scriptLogs%\fullLog.txt
+echo Backup compression finished. >> %scriptLogs%\fullLog.txt
 type %scriptLogs%\fullTmp.txt >> %scriptLogs%\fullLog.txt
 del %scriptLogs%\fullTmp.txt
 fsutil file seteof %scriptLogs%\fullLog.txt 1048576
