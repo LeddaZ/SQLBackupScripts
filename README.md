@@ -1,4 +1,4 @@
-# SQL-Backup-Scripts
+# SQL Server Backup Scripts
 
 ## config.txt instructions
 
