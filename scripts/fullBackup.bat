@@ -1,5 +1,5 @@
 @ren Lettura file di configurazione
-for /f "tokens=1,2 delims==" %%a in (config.txt) do (
+for /f "tokens=1,2 delims==" %%a in (..\config.txt) do (
     if %%a==dbName set dbName=%%b
     if %%a==serverName set serverName=%%b
     if %%a==fullBackupDir set fullBackupDir=%%b
@@ -34,7 +34,7 @@ md %diffBackupDir%\%datetime%
 echo %datetime% > %diffBackupDir%\latestfull.txt
 fsutil file seteof %diffBackupDir%\latestfull.txt 19
 echo Compressione del backup in corso... >> %scriptLogs%\fullLog.txt
-7z\7za.exe a -tzip %filename%.zip %filename% >> %scriptLogs%\fullLog.txt
+..\7z\7za.exe a -tzip %filename%.zip %filename% >> %scriptLogs%\fullLog.txt
 echo Compressione del backup completata. >> %scriptLogs%\fullLog.txt
 type %scriptLogs%\fullTmp.txt >> %scriptLogs%\fullLog.txt
 del %scriptLogs%\fullTmp.txt
