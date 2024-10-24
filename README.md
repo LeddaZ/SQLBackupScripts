@@ -2,6 +2,8 @@
 
 ## config.txt instructions
 
+The file must be created in this path.
+
 - `serverName` – Name of the SQL Server instance
 
 ![serverName](./img/serverName.png)

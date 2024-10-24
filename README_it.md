@@ -2,6 +2,8 @@
 
 ## Istruzioni config.txt
 
+Il file va creato nella cartella corrente.
+
 - `serverName` – Nome dell’istanza di SQL server
 
 ![serverName](./img/serverName.png)
